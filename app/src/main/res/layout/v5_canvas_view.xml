@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/top_bar_title_view"/>
+
+    <Button
+        android:id="@+id/btn_canvas_translate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="画布位移"/>
+
+    <Button
+        android:id="@+id/btn_canvas_scale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="画布缩放"/>
+
+    <Button
+        android:id="@+id/btn_canvas_rotate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="画布旋转"/>
+
+
+    <Button
+        android:id="@+id/btn_canvas_skew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="画布错切"/>
+
+    <Button
+        android:id="@+id/btn_canvas_save_restore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="画布状态"/>
+
+
+</LinearLayout>

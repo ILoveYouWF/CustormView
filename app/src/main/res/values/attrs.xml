@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NumView">
+        <attr name="lines" format="integer"/>
+        <attr name="textColor" format="color"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="TextNum">
+        <!--最大编辑字数-->
+        <attr name="maxWord" format="integer"/>
+        <!--达到最大值时数字文本显示的颜色-->
+        <attr name="numtextMaxColor" format="color|integer"/>
+        <!--编辑器字体的大小-->
+        <attr name="edittextSize" format="float"/>
+        <!--编辑器字体的颜色-->
+        <attr name="edittextColor" format="color|integer"/>
+        <!--编辑器没有内容是显示的提示语-->
+        <attr name="edittexthint" format="string"/>
+        <!--数字文本显示的颜色-->
+        <attr name="numtextColor" format="color|integer"/>
+        <!--数字文本的字体大小-->
+        <attr name="numtextSize" format="float"/>
+        <!--编辑字数到达一等级的级别值，可以不设置)-->
+        <attr name="levrlOneNum" format="integer"/>
+        <!--编辑字数到达二等级的级别值，可以不设置)-->
+        <attr name="levelTwoNum" format="integer"/>
+        <!--编辑字数到达一等级时数字文本显示的颜色，可以不设置,当一等级级别值和二等级的级别值相同时，取二等级的颜色值)-->
+        <attr name="levtlOneColor" format="color|integer"/>
+        <!--编辑字数到达二等级时数字文本显示的颜色，可以不设置)-->
+        <attr name="levelTwoColor" format="color|integer"/>
+    </declare-styleable>
+
+</resources>

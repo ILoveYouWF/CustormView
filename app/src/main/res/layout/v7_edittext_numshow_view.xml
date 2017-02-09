@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:num="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/top_bar_title_view"/>
+
+    <com.example.a20161005.custormview.v7EditTextNum.EditTextShowNum
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        num:edittextColor="@color/black"
+        num:levelTwoColor="@color/Chocolate"
+        num:levelTwoNum="70"
+        num:levrlOneNum="30"
+        num:levtlOneColor="@color/Darkorange"
+        num:maxWord="100"
+        num:numtextMaxColor="@color/Red"
+        num:numtextColor="@color/Gainsboro"
+        />
+
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/top_bar_title_view"/>
+
+    <Button
+        android:id="@+id/btn_mobile_coordinet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动手机坐标系"/>
+
+    <Button
+        android:id="@+id/btn_baseview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/paint_base_view"/>
+
+    <Button
+        android:id="@+id/btn_animalview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/animal_view"/>
+
+
+    <Button
+        android:id="@+id/btn_pieChart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_piechart_activity"/>
+
+    <Button
+        android:id="@+id/btn_canvas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/canvas_view"/>
+
+    <Button
+        android:id="@+id/btn_canvas_picture_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/draw_picture_text"/>
+
+    <Button
+        android:id="@+id/btn_edittext_nunshow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/show_num_message_content"/>
+
+    <Button
+        android:id="@+id/btn_custorm_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义进度条Demo"/>
+
+
+</LinearLayout>

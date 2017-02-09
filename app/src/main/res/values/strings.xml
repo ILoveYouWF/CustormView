@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">自定义视图</string>
+    <string name="start_piechart_activity">启动饼状图</string>
+    <string name="mobile_width">屏幕宽度：</string>
+    <string name="mobile_height">屏幕高度</string>
+    <string name="paint_base_view">绘制基础图形</string>
+    <string name="animal_view">动态图形</string>
+    <string name="canvas_view">画布相关操作</string>
+    <string name="draw_picture_text">绘制图片和文字</string>
+    <string name="show_num_message_content">显示字数的输入框</string>
+
+
+</resources>

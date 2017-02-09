@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/top_bar_title_view"/>
+
+    <ScrollView
+        android:id="@+id/sl_all"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/ll_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textview_coordinet_left"
+                        android:text="@string/mobile_width"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_mobile_width"
+                        style="@style/textview_coordinet_right"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textview_coordinet_left"
+                        android:text="@string/mobile_height"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tv_mobile_height"
+                        style="@style/textview_coordinet_right"/>
+
+                </TableRow>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_mobile"
+                android:orientation="horizontal">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textview_coordinet_left"
+                        android:text="视图宽度"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_view_width"
+                        style="@style/textview_coordinet_right"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textview_coordinet_left"
+                        android:text="视图高度"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_view_height"
+                        style="@style/textview_coordinet_right"/>
+                </TableRow>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_view_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_view"
+                android:orientation="horizontal">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textview_coordinet_left"
+                        android:text="视图左上角宽"
+                        />
+
+                    <TextView
+                        android:id="@+id/view_left_width"
+                        style="@style/textview_coordinet_right"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textview_coordinet_left"
+                        android:text="视图左上角高"
+                        />
+
+                    <TextView
+                        android:id="@+id/view_left_height"
+                        style="@style/textview_coordinet_right"/>
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_view_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_view_left"
+                android:orientation="horizontal">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textview_coordinet_left"
+                        android:text="视图右下角宽"
+                        />
+
+                    <TextView
+                        android:id="@+id/view_right_width"
+                        style="@style/textview_coordinet_right"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textview_coordinet_left"
+                        android:text="视图右下角高"
+                        />
+
+                    <TextView
+                        android:id="@+id/view_right_height"
+                        style="@style/textview_coordinet_right"/>
+                </TableRow>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_motion_event"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_view_right"
+                android:orientation="horizontal">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textview_coordinet_left"
+                        android:text="触屏横坐标"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_motion_width"
+                        style="@style/textview_coordinet_right"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textview_coordinet_left"
+                        android:text="触屏纵坐标"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_motion_height"
+                        style="@style/textview_coordinet_right"/>
+                </TableRow>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_view"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/ll_motion_event"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorAccent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_view"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/textview_coordinet_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="得到结论："
+                    android:textSize="12sp"/>
+
+                <TextView
+                    style="@style/textview_coordinet_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="屏幕宽度: (WindowManager)mManager.getDefaultDisplay().getWidth();
+            \n屏幕高度：(WindowManager)mManager.getDefaultDisplay().getHeight()
+            \n视图宽度：(WindowManager)mManager.getDefaultDisplay().getHeight()
+            \n视图宽度：tvView.getWidth()
+            \n视图宽度：tvView.getHeight()
+            \ntvView.getLeft()：获取子View左上角距父View左侧的距离
+            \ntvView.getTop()：获取子View左上角距父View顶部的距离
+            \ntvView.getRight()：获取子View右下角距父View左侧的距离
+            \ntvView.getBottom()：获取子View右下角距父View顶部的距离
+            \n注意：px = dp * 3
+            \nevent.getX()和event.getY()触摸点相对于其所在组件坐标系的坐标
+            \nevent.getRawX()和event.getRawY()触摸点相对于屏幕默认坐标系的坐标
+            "
+                    android:textSize="13sp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

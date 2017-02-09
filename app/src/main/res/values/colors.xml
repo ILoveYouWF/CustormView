@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black">#383838</color>
+    <color name="top_bar_title_bg">#fafafa</color>
+
+
+    <color name="Aqua">#00FFFF</color>
+    <color name="AntiqueWhite">#FAEBD7</color>
+
+    <color name="Chocolate">#D2691E</color>
+    <color name="DarkGoldenRod">#B8860B</color>
+    <color name="DarkMagenta">#8B008B</color>
+    <color name="Darkorange">#FF8C00</color>
+    <color name="Yellow">#FFFF00</color>
+    <color name="Red">#FF0000</color>
+    <color name="Gainsboro">#DCDCDC</color>
+    <color name="loading">#fed255</color>
+
+
+</resources>
