@@ -38,7 +38,6 @@ public class MainActivity extends BaseAcitivty implements View.OnClickListener {
         findViewById(R.id.btn_custorm_progress).setOnClickListener(this);
     }
 
-
     @Override
     public void onClick(View v) {
 
@@ -70,6 +69,5 @@ public class MainActivity extends BaseAcitivty implements View.OnClickListener {
             default:
                 break;
         }
-
     }
 }
