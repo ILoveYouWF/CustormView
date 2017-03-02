@@ -131,14 +131,14 @@ public class BaseView extends View {
         canvas.drawCircle(viewWigth/2, viewHigth-100, 90, mPaint);
 
         /**
-         * 绘制一段弧度
+         * 绘制一段弧度,绘制方向是顺时针绘制！
          */
         mPaint.setColor(Color.MAGENTA);
         mPaint.setStyle(Paint.Style.FILL);
-        canvas.drawArc(rectF1, -90.0F, -180.0F, true, mPaint);
+        canvas.drawArc(rectF1, -90.0F, 90F, true, mPaint);
         mPaint.setColor(Color.BLACK);
-        canvas.drawArc(rectF1, -45.0F, 90.0F, false, mPaint);
-
+//        canvas.drawArc(rectF1, -45.0F, 90.0F, false, mPaint);
+        canvas.drawArc(rectF1, 180, 90, false, mPaint);
 
         float size = mPaint.measureText("自定义View"); //测量字符串的宽度、
 

@@ -28,6 +28,7 @@ public class MainActivity extends BaseAcitivty implements View.OnClickListener {
     }
 
     private void initBindView() {
+        findViewById(R.id.btn_text).setOnClickListener(this);
         findViewById(R.id.btn_pieChart).setOnClickListener(this);
         findViewById(R.id.btn_mobile_coordinet).setOnClickListener(this);
         findViewById(R.id.btn_baseview).setOnClickListener(this);
@@ -42,6 +43,9 @@ public class MainActivity extends BaseAcitivty implements View.OnClickListener {
     public void onClick(View v) {
 
         switch (v.getId()) {
+            case R.id.btn_text:
+                startToActivity(TextViewActivity.class);
+                break;
             case R.id.btn_pieChart:
                 startToActivity(PieChartActivity.class);
                 break;

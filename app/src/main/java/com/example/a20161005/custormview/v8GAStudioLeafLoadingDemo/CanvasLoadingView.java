@@ -10,7 +10,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.example.a20161005.custormview.R;
@@ -19,8 +18,6 @@ import com.example.a20161005.custormview.UiUtils.UiUitls;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by ML on 2017/1/20.
@@ -84,13 +81,15 @@ public class CanvasLoadingView extends View {
 
 
     // 中等振幅大小
-    private static final int MIDDLE_AMPLITUDE = 13;
+    private static final int MIDDLE_AMPLITUDE = 20;
     // 不同类型之间的振幅差距
     private static final int AMPLITUDE_DISPARITY = 5;
 
     private int mMiddleAmplitude = MIDDLE_AMPLITUDE;
     // 振幅差
     private int mAmplitudeDisparity = AMPLITUDE_DISPARITY;
+
+    private boolean bIsCreateMoreLeaf = false;
 
     public CanvasLoadingView(Context context) {
         super(context);
@@ -106,7 +105,6 @@ public class CanvasLoadingView extends View {
         initBitmap();
         initPaint();
         mLeafFactory = new LeafFactory();
-        mLeafInfos = mLeafFactory.generateLeafs();
     }
 
     private void initPaint() {
@@ -137,9 +135,9 @@ public class CanvasLoadingView extends View {
         mOuterBitmap = ((BitmapDrawable) mResources.getDrawable(R.drawable.leaf_kuang)).getBitmap();
         mOuterHight = mOuterBitmap.getHeight();
         mOuterWidth = mOuterBitmap.getWidth();
-        mWheelBitmap = ((BitmapDrawable) mResources.getDrawable(R.drawable.fengshan)).getBitmap();
-        mWheelWidth = mWheelBitmap.getWidth();
-        mWheelHight = mWheelBitmap.getHeight();
+        //        mWheelBitmap = ((BitmapDrawable) mResources.getDrawable(R.drawable.fengshan)).getBitmap();
+        //        mWheelWidth = mWheelBitmap.getWidth();
+        //        mWheelHight = mWheelBitmap.getHeight();
     }
 
     @Override
@@ -151,50 +149,86 @@ public class CanvasLoadingView extends View {
         mArcRadius = (mTotalHeight - 2 * mLeftMargin) / 2;
         mOuterSrcRect = new Rect(0, 0, mOuterWidth, mOuterHight);
         mOuterDestRect = new Rect(0, 0, mTotalWidth, mTotalHeight);
-        mWheelSrcRect = new Rect(0, 0, mWheelWidth, mWheelHight);
-        mWheelDestRect = new Rect(mTotalWidth - mWheelWidth - UiUitls.dipToPx(getContext(), 5), 0 + UiUitls.dipToPx(getContext(), 5), mTotalWidth - UiUitls.dipToPx(getContext(), 7), mTotalHeight - UiUitls.dipToPx(getContext(), 5));
-
+        //        mWheelSrcRect = new Rect(0, 0, mWheelWidth, mWheelHight);
+        //        mWheelDestRect = new Rect(mTotalWidth - mWheelWidth - UiUitls.dipToPx(getContext(), 5), 0 + UiUitls.dipToPx(getContext(), 5), mTotalWidth - UiUitls.dipToPx(getContext(), 7), mTotalHeight - UiUitls.dipToPx(getContext(), 5));
+        //绘制白色进度条矩形的矩形
         mWhiteRectF = new RectF(mLeftMargin + mCurrentProgressPosition, mLeftMargin, mTotalWidth - mRightMargin, mTotalHeight - mLeftMargin);
+        //绘制橘色进度条矩形的矩形
         mOrangeRectF = new RectF(mLeftMargin + mArcRadius, mLeftMargin, mCurrentProgressPosition, mTotalHeight - mLeftMargin);
+        //绘制椭圆的矩形
         mArcRectF = new RectF(mLeftMargin, mLeftMargin, mLeftMargin + 2 * mArcRadius, mTotalHeight - mLeftMargin);
         mArcRightLocation = mLeftMargin + mArcRadius;
-
     }
+
+    private boolean onlyOne = true;
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        drawView(canvas);
+        if (!bIsCreateMoreLeaf) {
+            drawWaitingView(canvas);
+        } else if (bIsCreateMoreLeaf) {
+            if (onlyOne) {
+                mLeafInfos = mLeafFactory.generateLeafs();
+            }
+            onlyOne = false;
+            drawView(canvas);
+        }
+        if (mProgress < TOTAL_PROGRESS) {
+            postInvalidate();
+        }
+    }
+
+    private void drawWaitingView(Canvas canvas) {
+        canvas.drawArc(mArcRectF, 90, 180, false, mWhitePaint);
+        mWhiteRectF.left = mLeftMargin + mArcRadius;
+        canvas.drawRect(mWhiteRectF, mWhitePaint);
+        //        drawLeafs(canvas);
+        canvas.drawBitmap(mOuterBitmap, mOuterSrcRect, mOuterDestRect, mBitmapPaint);
+
     }
 
     public void drawView(Canvas canvas) {
         drawProgressAndLeafs(canvas);
         canvas.drawBitmap(mOuterBitmap, mOuterSrcRect, mOuterDestRect, mBitmapPaint);
-        postInvalidate();
+    }
+
+    public interface overLoading {
+        void over();
+    }
+
+    public overLoading mLoading;
+
+    public void setLoading(overLoading loading) {
+        mLoading = loading;
     }
 
     public void drawProgressAndLeafs(Canvas canvas) {
 
         if (mProgress >= TOTAL_PROGRESS) {
-            mProgress = 0;
+            mWhiteRectF.left = mProgressWidth;
+            canvas.drawRect(mWhiteRectF, mWhitePaint);
+            canvas.drawArc(mArcRectF, 90, 180, false, mOrangePaint);
+            mOrangeRectF.left = mArcRightLocation;
+            mOrangeRectF.right = mProgressWidth;
+            canvas.drawRect(mOrangeRectF, mOrangePaint);
+            if (mLoading != null) {
+                mLoading.over();
+            }
+            return;
         }
         mCurrentProgressPosition = mProgressWidth * mProgress / TOTAL_PROGRESS;
         if (mCurrentProgressPosition < mArcRadius) {
-            Log.e(this.getClass().getName(), "mProgress = " + mProgress + "---mCurrentProgressPosition = "
-                    + mCurrentProgressPosition + "---mArcProgressWidth = " + mArcRadius);
             canvas.drawArc(mArcRectF, 90, 180, false, mWhitePaint);
             mWhiteRectF.left = mArcRightLocation;
             canvas.drawRect(mWhiteRectF, mWhitePaint);
             drawLeafs(canvas);
-            int angle = (int) Math.toDegrees(Math.acos(mArcRadius - mCurrentProgressPosition) / mArcRadius);
+            int angle = (int) Math.toDegrees(Math.acos((mArcRadius - mCurrentProgressPosition) / (float) mArcRadius));
             int startAngle = 180 - angle;
             int sweepAngle = 2 * angle;
-            Log.e(TAG, "startAngle = " + startAngle);
+            //            L.e("startAngle = " + startAngle);
             canvas.drawArc(mArcRectF, startAngle, sweepAngle, false, mOrangePaint);
         } else {
-            Log.i(TAG, "mProgress = " + mProgress + "---transfer-----mCurrentProgressPosition = "
-                    + mCurrentProgressPosition
-                    + "--mArcProgressWidth" + mArcRadius);
             mWhiteRectF.left = mCurrentProgressPosition;
             canvas.drawRect(mWhiteRectF, mWhitePaint);
             drawLeafs(canvas);
@@ -211,14 +245,12 @@ public class CanvasLoadingView extends View {
         long currentTime = System.currentTimeMillis();
         for (int i = 0; i < mLeafInfos.size(); i++) {
             Leaf leaf = mLeafInfos.get(i);
-
             if (currentTime > leaf.startTime && leaf.startTime != 0) {
                 getLeafLocation(leaf, currentTime);
                 canvas.save();
                 Matrix matrix = new Matrix();
                 float transX = mLeftMargin + leaf.x;
                 float transY = mLeftMargin + leaf.y;
-                Log.e(TAG, "left.x = " + leaf.x + "--leaf.y=" + leaf.y);
                 matrix.postTranslate(transX, transY);
                 float rotateFration = ((currentTime - leaf.startTime)) % mLeafRotateTime / (float) mLeafRotateTime;
                 int angle = (int) (rotateFration * 360);
@@ -263,7 +295,6 @@ public class CanvasLoadingView extends View {
             default:
                 break;
         }
-        Log.i(TAG, "---a = " + a + "---w = " + w + "--leaf.x = " + leaf.x);
         return (int) (a * Math.sin(w * leaf.x)) + mArcRadius * 2 / 3;
     }
 
@@ -280,10 +311,19 @@ public class CanvasLoadingView extends View {
         private long startTime;
     }
 
+    /**
+     * 叶子工厂
+     **/
     private class LeafFactory {
-        private static final int MAX_LEAFS = 8;
+        private static final int MAX_LEAFS_LOADING = 8;
+        private boolean bIsFirst = true;  //第一个叶子不需要延迟
         Random random = new Random();
 
+        /**
+         * 生产叶子
+         *
+         * @return
+         */
         public Leaf createLeafs() {
             Leaf leaf = new Leaf();
             int leafType = random.nextInt(3);
@@ -305,23 +345,39 @@ public class CanvasLoadingView extends View {
             leaf.rotateAngle = random.nextInt(360);
             leaf.rotateDirection = random.nextInt(2);
             mLeafFloatTime = mLeafFloatTime <= 0 ? LEAF_FLOAT_TIME : mLeafFloatTime;
-            mAddTime += random.nextInt((int) mLeafFloatTime * 2);
-            leaf.startTime = System.currentTimeMillis() + mAddTime;
+            cofigLeafStartTimeFromLoading(leaf);
             return leaf;
         }
 
+        private void cofigLeafStartTimeFromLoading(Leaf leaf) {
+            mAddTime += random.nextInt((int) mLeafFloatTime - 1500);
+            leaf.startTime = System.currentTimeMillis() + (bIsFirst ? 0 : mAddTime);
+        }
+
         public List<Leaf> generateLeafs() {
-            return generateLeafs(MAX_LEAFS);
+            return generateLeafs(MAX_LEAFS_LOADING);
         }
 
         public List<Leaf> generateLeafs(int leafSize) {
             List<Leaf> leafs = new LinkedList<Leaf>();
             for (int i = 0; i < leafSize; i++) {
                 leafs.add(createLeafs());
+                bIsFirst = false;
             }
             return leafs;
         }
     }
 
+    public int getProgress() {
+        return mProgress;
+    }
 
+    public void setProgress(int progress) {
+        mProgress = progress;
+        postInvalidate();
+    }
+
+    public void setbIsCreateMoreLeaf(boolean bIsCreateMoreLeaf) {
+        this.bIsCreateMoreLeaf = bIsCreateMoreLeaf;
+    }
 }

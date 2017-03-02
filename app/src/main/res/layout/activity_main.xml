@@ -9,6 +9,12 @@
     <include layout="@layout/top_bar_title_view"/>
 
     <Button
+        android:id="@+id/btn_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试专用"/>
+
+    <Button
         android:id="@+id/btn_mobile_coordinet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

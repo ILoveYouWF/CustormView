@@ -2,22 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#fed255"
+              android:gravity="center"
               android:orientation="vertical">
 
-    <include layout="@layout/top_bar_title_view"/>
-
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fed255"
         android:gravity="center"
         >
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <com.example.a20161005.custormview.v8GAStudioLeafLoadingDemo.CanvasLoadingView
                 android:id="@+id/canvasRotateWheel"
@@ -38,10 +35,4 @@
                 />
         </RelativeLayout>
     </RelativeLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="startDialog"
-        android:text="启动对话框"/>
 </LinearLayout>
