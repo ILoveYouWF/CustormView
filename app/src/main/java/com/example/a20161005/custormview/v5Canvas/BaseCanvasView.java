@@ -51,6 +51,7 @@ public class BaseCanvasView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        //TODO 移动原点坐标到画布的中心位置，并以此为原点绘制坐标系！
         canvas.translate(X, Y);
         mPaint.setColor(getResources().getColor(R.color.black));
         canvas.drawLine(-X, 0, X, 0, mPaint);

@@ -1,4 +1,4 @@
-package com.example.a20161005.custormview.v8GAStudioLeafLoadingDemo;
+package com.example.a20161005.custormview.v9CustormDialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.a20161005.custormview.R;
+import com.example.a20161005.custormview.v8GAStudioLeafLoadingDemo.CanvasLoadingView;
 
 import java.util.Random;
 
@@ -49,7 +50,6 @@ public class CustormLoadingDialog extends Dialog {
         mContext = context;
         mInflater = LayoutInflater.from(mContext);
         initView();
-
     }
 
 
@@ -74,84 +74,12 @@ public class CustormLoadingDialog extends Dialog {
         WindowManager manager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         Window window = getWindow();
         this.setCanceledOnTouchOutside(false);
-
         WindowManager.LayoutParams params = window.getAttributes();
         Display display = manager.getDefaultDisplay();
         window.setGravity(Gravity.CENTER);
         params.width = (int) (display.getWidth() * 0.8);
         params.height = (int) (display.getHeight() * 0.4);
         window.setAttributes(params);
-
-    }
-
-    static class Builder {
-
-        private Context context;
-        private String title;
-        private String message;
-        private String positiveMsg;
-        private String negativeMg;
-        private int titleId;
-        private int positiveId;
-        private int negativeId;
-        private View contentView;
-        private View.OnClickListener positiveButtonOnClickListener;
-        private View.OnClickListener negateveButtonOnClickListener;
-
-        public Builder setContext(Context context) {
-            this.context = context;
-            return this;
-        }
-
-        public Builder setTitle(String title) {
-            this.title = title;
-            return this;
-        }
-
-        public Builder setMessage(String message) {
-            this.message = message;
-            return this;
-        }
-
-        public Builder setPositiveMsg(String positiveMsg) {
-            this.positiveMsg = positiveMsg;
-            return this;
-        }
-
-        public Builder setNegativeMg(String negativeMg) {
-            this.negativeMg = negativeMg;
-            return this;
-        }
-
-        public Builder setTitleId(int titleId) {
-            this.titleId = titleId;
-            return this;
-        }
-
-        public Builder setPositiveId(int positiveId) {
-            this.positiveId = positiveId;
-            return this;
-        }
-
-        public Builder setNegativeId(int negativeId) {
-            this.negativeId = negativeId;
-            return this;
-        }
-
-        public Builder setContentView(View contentView) {
-            this.contentView = contentView;
-            return this;
-        }
-
-        public Builder setPositiveButtonOnClickListener(View.OnClickListener positiveButtonOnClickListener) {
-            this.positiveButtonOnClickListener = positiveButtonOnClickListener;
-            return this;
-        }
-
-        public Builder setNegateveButtonOnClickListener(View.OnClickListener negateveButtonOnClickListener) {
-            this.negateveButtonOnClickListener = negateveButtonOnClickListener;
-            return this;
-        }
 
     }
 }

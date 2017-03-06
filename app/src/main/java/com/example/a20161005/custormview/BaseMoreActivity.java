@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.example.a20161005.custormview.CommentUtil.GlobalConstant;
 import com.example.a20161005.custormview.CommentUtil.StrUitl;
+import com.example.xutil.LogUtil.L;
 
 /**
  * Created by ML on 2017/1/13.
@@ -63,6 +64,10 @@ public abstract class BaseMoreActivity extends BaseAcitivty {
         super.onClick(v);
         for (int i = 0; i < viewIds.length; i++) {
             if (v.getId() == viewIds[i]) {
+                if (i+1 >= titles.length) {
+                    L.e("出现数组越界");
+                    return;
+                }
                 ctx.startToActivity(ctx.getClass(), titles[i + 1]);
                 break;
             }

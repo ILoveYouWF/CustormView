@@ -55,7 +55,7 @@
     </style>
 
     <style name="custorm_loading_dialog" parent="Theme.AppCompat.Dialog">
-        <item name="android:background">@color/Red</item>
+        <item name="android:background">@color/Yellow</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFrame">@null</item>

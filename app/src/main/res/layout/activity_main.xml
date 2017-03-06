@@ -63,5 +63,11 @@
         android:layout_height="wrap_content"
         android:text="自定义进度条Demo"/>
 
+    <Button
+        android:id="@+id/btn_canvas_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绘制Path"/>
+
 
 </LinearLayout>

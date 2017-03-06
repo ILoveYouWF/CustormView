@@ -44,6 +44,9 @@
         <activity
             android:name=".TextViewActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".v10CanvasPath.CanvasPathActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

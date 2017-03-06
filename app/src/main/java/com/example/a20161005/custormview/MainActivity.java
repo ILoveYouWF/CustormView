@@ -3,6 +3,7 @@ package com.example.a20161005.custormview;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.a20161005.custormview.v10CanvasPath.CanvasPathActivity;
 import com.example.a20161005.custormview.v4PieChartView.PieChartActivity;
 import com.example.a20161005.custormview.v1MobileCoordinates.MobileCoordinatesActivity;
 import com.example.a20161005.custormview.v2BaseCustormView.BaseViewActivity;
@@ -37,6 +38,7 @@ public class MainActivity extends BaseAcitivty implements View.OnClickListener {
         findViewById(R.id.btn_canvas_picture_text).setOnClickListener(this);
         findViewById(R.id.btn_edittext_nunshow).setOnClickListener(this);
         findViewById(R.id.btn_custorm_progress).setOnClickListener(this);
+        findViewById(R.id.btn_canvas_path).setOnClickListener(this);
     }
 
     @Override
@@ -69,6 +71,9 @@ public class MainActivity extends BaseAcitivty implements View.OnClickListener {
                 break;
             case R.id.btn_custorm_progress:
                 startToActivity(CustormLoadingActivty.class);
+                break;
+            case R.id.btn_canvas_path:
+                startToActivity(CanvasPathActivity.class);
                 break;
             default:
                 break;

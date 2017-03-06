@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.example.a20161005.custormview.BaseAcitivty;
 import com.example.a20161005.custormview.R;
-import com.example.xutil.LogUtil.L;
+import com.example.a20161005.custormview.v9CustormDialog.CustormLoadingDialog;
 
 import java.util.Random;
 
@@ -45,9 +45,12 @@ public class CustormLoadingActivty extends BaseAcitivty {
         loadView.setLoading(new CanvasLoadingView.overLoading() {
             @Override
             public void over() {
-                L.e("执行回调接口了！");
+                //TODO  加载完成会回调接口
             }
         });
+        /**
+         * 延迟五秒在执行，其实就是模仿一下等在网络的过程！
+         */
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
