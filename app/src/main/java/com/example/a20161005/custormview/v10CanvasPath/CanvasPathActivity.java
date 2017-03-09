@@ -16,8 +16,8 @@ public class CanvasPathActivity extends BaseMoreActivity {
 
     @Override
     public void setDatas() {
-        titles = new String[]{PATH_TITME, PATH_BASE_METHOD,PATH_ADD_SHAPES};
-        layouts = new int[]{R.layout.v10_draw_path_view, R.layout.v10_path_base_method_view,R.layout.v10_path_add_shapes_view};
+        titles = new String[]{PATH_TITME, PATH_BASE_METHOD, PATH_ADD_SHAPES, PATH_ADD_BOOLEAN,PATH_RADAR_MAP};
+        layouts = new int[]{R.layout.v10_draw_path_view, R.layout.v10_path_base_method_view, R.layout.v10_path_add_shapes_view, R.layout.v10_path_boolean_view, R.layout.v10_path_radar_map_view};
         viewIds = new int[]{R.id.btn_one, R.id.btn_two, R.id.btn_three, R.id.btn_four};
     }
 }

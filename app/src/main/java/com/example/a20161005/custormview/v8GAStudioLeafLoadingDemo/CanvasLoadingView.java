@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.example.a20161005.custormview.R;
-import com.example.a20161005.custormview.UiUtils.UiUitls;
+import com.example.xutil.ConvertUtils;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -98,8 +98,8 @@ public class CanvasLoadingView extends View {
     public CanvasLoadingView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mResources = getResources();
-        mLeftMargin = UiUitls.dipToPx(context, LEFT_MARGIN);
-        mRightMargin = UiUitls.dipToPx(context, RIGHT_MARGIN);
+        mLeftMargin = ConvertUtils.dip2px(context, LEFT_MARGIN);
+        mRightMargin = ConvertUtils.dip2px(context, RIGHT_MARGIN);
         mLeafFloatTime = LEAF_FLOAT_TIME;
         mLeafRotateTime = LEAF_ROTATE_TIME;
         initBitmap();

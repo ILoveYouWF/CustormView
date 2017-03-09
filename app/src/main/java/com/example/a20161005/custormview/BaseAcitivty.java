@@ -1,13 +1,17 @@
 package com.example.a20161005.custormview;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.a20161005.custormview.CommentUtil.GlobalConstant;
-import com.example.a20161005.custormview.CommentUtil.StrUitl;
+import com.example.xutil.LogUtil.L;
+import com.example.xutil.StrUtils;
+import com.example.xutil.UIUtils;
+import com.example.xutil.ViewUtils;
 
 /**
  * Created by ML on 2017/1/9.
@@ -16,7 +20,6 @@ import com.example.a20161005.custormview.CommentUtil.StrUitl;
 public class BaseAcitivty extends FragmentActivity implements View.OnClickListener {
 
     private BaseAcitivty ctx;
-
     protected TopBarTitleView mTitleView;
 
 
@@ -31,6 +34,12 @@ public class BaseAcitivty extends FragmentActivity implements View.OnClickListen
         mTitleView = new TopBarTitleView(ctx);
         mTitleView.initView();
         mTitleView.setLinstener(ctx);
+        UIUtils.setStatusBarFontDark(getWindow(), true, 0xffcccccc,mTitleView.getLlAllToolBar());
+        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
+            L.e("SDK版本在4.4-5.0之间");
+            UIUtils.setTranslucentStatusForSDK_KITKAT(getWindow());
+            ViewUtils.showViews(mTitleView.getLlAllToolBar(), R.id.view_status_bar_place);
+        }
     }
 
     @Override
@@ -58,7 +67,7 @@ public class BaseAcitivty extends FragmentActivity implements View.OnClickListen
 
     protected void startToActivity(Class<?> cls, String type) {
         Intent intent = new Intent(ctx, cls);
-        if (StrUitl.isNotEmptyOrNull(type)) {
+        if (StrUtils.noEmptyOrNull(type)) {
             intent.putExtra(GlobalConstant.KEY_CONSTANT_VALUE, type);
         }
         startActivity(intent);

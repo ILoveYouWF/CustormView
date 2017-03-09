@@ -6,7 +6,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.a20161005.custormview.CommentUtil.StrUitl;
+import com.example.xutil.StrUtils;
 
 import static android.view.View.VISIBLE;
 
@@ -19,6 +19,7 @@ public class TopBarTitleView {
     private BaseAcitivty ctx;
     private LayoutInflater mLayoutInflater;
 
+    private LinearLayout llAllToolBar;
     private TextView tvTitle;
     private ImageButton leftImg;
     private TextView tvRight;
@@ -30,6 +31,7 @@ public class TopBarTitleView {
     }
 
     public void initView() {
+        llAllToolBar = (LinearLayout) ctx.findViewById(R.id.ll_all_toolbar);
         tvTitle = (TextView) ctx.findViewById(R.id.tv_title);
         tvRight = (TextView) ctx.findViewById(R.id.tv_right_sure);
         leftImg = (ImageButton) ctx.findViewById(R.id.left_imageView);
@@ -49,12 +51,12 @@ public class TopBarTitleView {
 
     public void initTopTitle(String topTitle, String rightText) {
 
-        if (StrUitl.isNotEmptyOrNull(topTitle)) {
+        if (StrUtils.noEmptyOrNull(topTitle)) {
             tvTitle.setText(topTitle);
             tvTitle.setVisibility(VISIBLE);
         }
 
-        if (StrUitl.isNotEmptyOrNull(rightText)) {
+        if (StrUtils.noEmptyOrNull(rightText)) {
             tvRight.setText(rightText);
             tvTitle.setVisibility(VISIBLE);
         }
@@ -75,5 +77,9 @@ public class TopBarTitleView {
 
     public void setTvRight(TextView tvRight) {
         this.tvRight = tvRight;
+    }
+
+    public LinearLayout getLlAllToolBar() {
+        return llAllToolBar;
     }
 }
