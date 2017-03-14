@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.a20161005.custormview.v10CanvasPath.CanvasPathActivity;
-import com.example.a20161005.custormview.v4PieChartView.PieChartActivity;
+import com.example.a20161005.custormview.v11BezierOfPath.CanvasBeziarActivity;
 import com.example.a20161005.custormview.v1MobileCoordinates.MobileCoordinatesActivity;
 import com.example.a20161005.custormview.v2BaseCustormView.BaseViewActivity;
 import com.example.a20161005.custormview.v3AnimalCustormView.AnimalCustormViewActivity;
+import com.example.a20161005.custormview.v4PieChartView.PieChartActivity;
 import com.example.a20161005.custormview.v5Canvas.CanvasActivity;
 import com.example.a20161005.custormview.v6DrawPictureAndText.DrawPictureActivity;
 import com.example.a20161005.custormview.v7EditTextNum.EditTextNumActivity;
@@ -39,6 +40,7 @@ public class MainActivity extends BaseAcitivty implements View.OnClickListener {
         findViewById(R.id.btn_edittext_nunshow).setOnClickListener(this);
         findViewById(R.id.btn_custorm_progress).setOnClickListener(this);
         findViewById(R.id.btn_canvas_path).setOnClickListener(this);
+        findViewById(R.id.btn_canvas_beziar).setOnClickListener(this);
     }
 
     @Override
@@ -74,6 +76,9 @@ public class MainActivity extends BaseAcitivty implements View.OnClickListener {
                 break;
             case R.id.btn_canvas_path:
                 startToActivity(CanvasPathActivity.class);
+                break;
+            case R.id.btn_canvas_beziar:
+                startToActivity(CanvasBeziarActivity.class);
                 break;
             default:
                 break;

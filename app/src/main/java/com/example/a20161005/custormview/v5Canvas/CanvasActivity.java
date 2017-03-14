@@ -24,6 +24,11 @@ public class CanvasActivity extends BaseMoreActivity {
     }
 
     @Override
+    public void specialCase() {
+
+    }
+
+    @Override
     public void setDatas() {
         titles = new String[]{CANVAS_CANDO, TRANSLATE, SCALE, ROTATE, SKEW, SAVE_RESTORE};
         layouts = new int[]{R.layout.v5_canvas_view, R.layout.canvas_traslate_view, R.layout.canvas_scale_view,

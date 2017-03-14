@@ -47,6 +47,10 @@
         <activity
             android:name=".v10CanvasPath.CanvasPathActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".v11BezierOfPath.CanvasBeziarActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

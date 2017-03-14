@@ -22,6 +22,8 @@ public class BaseCanvasView extends View {
     protected int X;
     protected int Y;
 
+    protected boolean canvasAssistLine = true;
+
     public BaseCanvasView(Context context) {
         super(context);
         initPaint();
@@ -53,8 +55,10 @@ public class BaseCanvasView extends View {
         super.onDraw(canvas);
         //TODO 移动原点坐标到画布的中心位置，并以此为原点绘制坐标系！
         canvas.translate(X, Y);
-        mPaint.setColor(getResources().getColor(R.color.black));
-        canvas.drawLine(-X, 0, X, 0, mPaint);
-        canvas.drawLine(0, -Y, 0, Y, mPaint);
+        if (canvasAssistLine) {
+            mPaint.setColor(getResources().getColor(R.color.black));
+            canvas.drawLine(-X, 0, X, 0, mPaint);
+            canvas.drawLine(0, -Y, 0, Y, mPaint);
+        }
     }
 }

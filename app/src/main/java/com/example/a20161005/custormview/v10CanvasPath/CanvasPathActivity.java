@@ -15,6 +15,11 @@ public class CanvasPathActivity extends BaseMoreActivity {
     public static final String PATH_RADAR_MAP = "绘制雷达图";
 
     @Override
+    public void specialCase() {
+
+    }
+
+    @Override
     public void setDatas() {
         titles = new String[]{PATH_TITME, PATH_BASE_METHOD, PATH_ADD_SHAPES, PATH_ADD_BOOLEAN,PATH_RADAR_MAP};
         layouts = new int[]{R.layout.v10_draw_path_view, R.layout.v10_path_base_method_view, R.layout.v10_path_add_shapes_view, R.layout.v10_path_boolean_view, R.layout.v10_path_radar_map_view};

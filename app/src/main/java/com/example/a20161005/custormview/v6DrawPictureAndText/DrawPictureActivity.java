@@ -23,6 +23,11 @@ public class DrawPictureActivity extends BaseMoreActivity {
     }
 
     @Override
+    public void specialCase() {
+
+    }
+
+    @Override
     public void setDatas() {
         titles = new String[]{CANVAS_PICTURE_BITMAP_TEXT, CANVAS_PICTURE, CANVAS_BITMAP, CANVAS_TEXT};
         layouts = new int[]{R.layout.v6_canvas_picture_text_bitmap, R.layout.v6_draw_picture_view, R.layout.v6_draw_bitmap_view, R.layout.v6_draw_text_view};

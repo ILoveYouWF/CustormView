@@ -28,7 +28,10 @@ public abstract class BaseMoreActivity extends BaseAcitivty {
         ctx = this;
         setDatas();
         initView();
+        specialCase();
     }
+
+    public abstract void specialCase();
 
     private void initView() {
         type = getIntent().getStringExtra(GlobalConstant.KEY_CONSTANT_VALUE);
@@ -47,6 +50,7 @@ public abstract class BaseMoreActivity extends BaseAcitivty {
                 break;
             }
         }
+
     }
 
     public abstract void setDatas();

@@ -69,5 +69,11 @@
         android:layout_height="wrap_content"
         android:text="绘制Path"/>
 
+    <Button
+        android:id="@+id/btn_canvas_beziar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绘制贝尔曲线"/>
+
 
 </LinearLayout>

@@ -82,4 +82,12 @@ public class TopBarTitleView {
     public LinearLayout getLlAllToolBar() {
         return llAllToolBar;
     }
+
+    public TextView getTvTitle() {
+        return tvTitle;
+    }
+
+    public void setTvTitle(TextView tvTitle) {
+        this.tvTitle = tvTitle;
+    }
 }
